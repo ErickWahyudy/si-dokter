@@ -7,8 +7,7 @@
  * @category    	Libraries
  * @porting author	dwi.setiyadi@gmail.com
  * @original author	http://phpqrcode.sourceforge.net/
- * @pengembang		Kassandra Production (https://kassandra.my.id)
- * @Author			@erikwahyudy
+ * 
  * @version		1.0
  */
  
