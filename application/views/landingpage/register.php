@@ -63,7 +63,7 @@ $(window).on('load', function() {
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3"><?= $meta_keywords ?></h6>
-                <p> *Silahkan isi form pendaftaran dengan benar dan lengkap</p>
+                <p> *Silahkan isi form pendaftaran dengan benar dan lengkap untuk melakukan pendaftaran akun baru</p>
             </div>
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.5s">
