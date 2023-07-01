@@ -71,7 +71,7 @@ if($aksi == "lihat"):
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="no_hp" value="<?= $no_hp ?>" class="form-control" autocomplete="off" required>
+                                    <input type="number" name="no_hp" value="<?= $no_hp ?>" class="form-control" autocomplete="off" required>
                                 </td>
                             </tr>
                             <tr>

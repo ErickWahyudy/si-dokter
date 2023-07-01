@@ -74,7 +74,9 @@
           <div class="checkbox icheck">
             <label>
               lupa password? <a href="<?= base_url('reset_password') ?>">klik disini</a>
-            </label>
+            </label> <br>
+            <label>
+              belum punya akun? <a href="<?= base_url('register') ?>">klik disini</a>
           </div>
         		<center>
 							<strong>Copyright &copy; <?php echo date('Y'); ?>

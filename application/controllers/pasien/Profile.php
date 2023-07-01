@@ -30,6 +30,7 @@ class Profile extends CI_controller
     'aksi'            =>'lihat',
     'judul'           =>'Data Akun Profile',
     'id_pasien'       =>$data['id_pasien'],
+    'no_pasien'       =>$data['no_pasien'],
     'nama'            =>$data['nama'],
     'no_hp'           =>$data['no_hp'],
     'alamat'          =>$data['alamat'],

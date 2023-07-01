@@ -7,11 +7,11 @@
     <title><?= $judul ?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="keywords" content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
+    <meta name="keywords"
+        content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
     <meta name="description" content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet"
-        href="<?= base_url('themes/admin') ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url('themes/admin') ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet"
         href="<?= base_url('themes/admin') ?>/bower_components/font-awesome/css/font-awesome.min.css">
@@ -55,83 +55,101 @@
 
 <body background="<?= base_url('themes/admin') ?>/dist/home1.jpg" style="background-size: cover;">
 
-<?php
+    <?php
 //membuat waktu gmt +7
 date_default_timezone_set('Asia/Jakarta');
 $datetime = date('Y-m-d H:i:s');
 if($expired >= $datetime) :
 ?>
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
                 <?= $judul ?>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><?= $judul ?></li>
-                </ol>
-            </section>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active"><?= $judul ?></li>
+            </ol>
+        </section>
 
-            <!-- Main content -->
-            <section class="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- general form elements -->
-                        <div class="box box-success">
-                            <div class="box-header with-border">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="box box-success">
+                        <div class="box-header with-border">
 
                             <table class="table table-reposive">
                                 <form action="" method="POST">
-                                <tr>
-                                    <th class="col-md-3">Nama Pelanggan</th>
-                                    <td>
-                                        <input type="text" name="nama" class="form-control" value="<?= $nama ?>" readonly>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Masukkan Password Baru</th>
-                                    <td>
-                                        <input type="password" name="password" class="form-control">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>
-                                        <input type="submit" name="kirim" value="Simpan" class="btn btn-success">
-                                    </th>
-                                </tr>
-                                </form>	 
+                                    <tr>
+                                        <th class="col-md-3">Nama Pelanggan</th>
+                                        <td>
+                                            <input type="text" name="nama" class="form-control" value="<?= $nama ?>"
+                                                readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Masukkan Password Baru</th>
+                                        <td>
+                                            <input type="password" name="password" id="password" class="form-control">
+                                            <input type="checkbox" onclick="viewPassword()"> Lihat Password
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <th>
+                                            <input type="submit" name="kirim" value="Simpan" class="btn btn-success">
+                                        </th>
+                                    </tr>
+                                </form>
                             </table>
-                            </div>
+                        </div>
+                        <script type="text/javascript">
+                        //view password
+                        function viewPassword() {
+                            var x = document.getElementById("password");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                        </script>
+                        <footer class="main-footer">
+                            <strong>Copyright &copy; <?php echo date('Y'); ?>
+                                <?php  $nama_judul = $this->db->get('tb_pengaturan')->row_array(); ?>
+                                <a href="https://bit.ly/kassandrahdproduction"
+                                    target="blank"><?= $nama_judul['nama_judul'] ?></a>.</strong> All rights reserved
+                        </footer>
 
-        <footer class="main-footer">
-            <strong>Copyright &copy; <?php echo date('Y'); ?>
-			<a href="https://bit.ly/kassandrahdproduction" target="blank">KassandraWifi</a>.</strong> All rights reserved.<br>
-        </footer>
-        
-<?php 
+                        <?php 
 date_default_timezone_set('Asia/Jakarta');
 $datetime = date('Y-m-d H:i:s');
 elseif($expired <= $datetime):
 ?>
-<br><br><br><br><br><br><br><br><br><br>
-<!-- menampilkan expired -->
-<center>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-danger">
-                <h3>Maaf, token reset password anda sudah expired silakan melakukan reset password kembali</h3>
-                <a href="<?= base_url('reset_password') ?>" class="btn btn-warning">Reset Password</a>
-               <br><br>
-            <strong>Copyright &copy; <?php echo date('Y'); ?>
-			<a href="https://bit.ly/kassandrahdproduction" target="blank">KassandraWifi</a>.</strong> All rights reserved.<br>
-            </div>
-        </div>
-    </div>
-</center>
+                        <br><br><br><br><br><br><br><br><br><br>
+                        <!-- menampilkan expired -->
+                        <center>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-danger">
+                                            <h3>Maaf, token reset password anda sudah expired silakan melakukan reset
+                                                password kembali</h3>
+                                            <a href="<?= base_url('reset_password') ?>" class="btn btn-warning">Reset
+                                                Password</a>
+                                            <br><br>
+                                            <strong>Copyright &copy; <?php echo date('Y'); ?>
+                                                <?php  $nama_judul = $this->db->get('tb_pengaturan')->row_array(); ?>
+                                                <a href="https://bit.ly/kassandrahdproduction"
+                                                    target="blank"><?= $nama_judul['nama_judul'] ?></a>.</strong> All
+                                            rights reserved
+                                        </div>
+                                    </div>
+                                </div>
+                        </center>
 
-<?php endif; ?>
-
+                        <?php endif; ?>

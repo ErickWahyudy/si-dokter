@@ -229,7 +229,7 @@ class Reset_password extends CI_controller
     'judul'           =>'Password Baru',
     'id_token'        =>$data['id_token'],
     'expired'         =>$data['expired'],
-    'id_pelanggan'    =>$data['id_pelanggan'],
+    'id_pasien'       =>$data['id_pasien'],
     'nama'            =>$data['nama'],
     'email'           =>$data['email'],
     'password'        =>$data['password'],

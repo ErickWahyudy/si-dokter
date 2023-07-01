@@ -83,6 +83,36 @@ class Register extends CI_controller
        return $newID;
      }
 
+     private function tgl($value='')
+     {
+       //gmt +7
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl = date('dmy');
+        return $tgl;
+      }
+
+     //no_pasien urut terakhir kombinasikan dengan tanggal
+     private function no_pasien_urut($value='')
+     {
+       $this->m_pasien->id_urut();
+       $query  = $this->db->get();
+       $data   = $query->row_array();
+       $id     = $data['id_pasien'];
+       $urut   = substr($id, 1, 3);
+       $tambah = (int) $urut + 1;
+       $tgl    = $this->tgl();
+
+       if (strlen($tambah) == 1){
+       $newID = "P"."00".$tambah."-".$tgl;
+          }else if (strlen($tambah) == 2){
+          $newID = "P"."0".$tambah."-".$tgl;
+             }else (strlen($tambah) == 3){
+             $newID = "P".$tambah."-".$tgl
+               };
+        return $newID;
+     }
+      
+
      public function add()
      {
       $data = $this->m_pengaturan->view()->row_array();
@@ -153,6 +183,7 @@ class Register extends CI_controller
  
              $SQLinsert=array(
               'id_pasien'           =>$this->id_pasien_urut(),
+              'no_pasien'           =>$this->no_pasien_urut(),
               'nama'                =>$this->input->post('nama'),
               'no_hp'               =>$this->input->post('no_hp'),
               'alamat'              =>$this->input->post('alamat'),
@@ -308,6 +339,7 @@ class Register extends CI_controller
     } else {
       $SQLinsert = [
         'id_pasien'           =>$this->id_pasien_urut(),
+        'no_pasien'           =>$this->no_pasien_urut(),
         'nama'                =>$this->input->post('nama'),
         'no_hp'               =>$this->input->post('no_hp'),
         'alamat'              =>$this->input->post('alamat'),

@@ -96,7 +96,7 @@
                                     <?php if ($this->session->userdata['id_pasien'] == $psn['id_pasien']): ?>
                                         <h3><?= $psn['nama']; ?></h3>
                                     <?php else: ?>
-                                        <h3><?= $psn['kode_antrian']; ?></h3>
+                                        <h3><?= $psn['no_pasien']; ?></h3>
                                     <?php endif; ?>
                                 <p>Pasien sedang diperiksa</p>
                                 <?php endforeach; ?>
@@ -124,7 +124,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="col-md-1">No Antrian</th>
-                                                    <th class="col-md-2">Kode Antrian</th>
+                                                    <th class="col-md-2">Nomor Pasien</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
@@ -137,7 +137,7 @@
                                                         <td style="background-color: #A52A2A; color: white;"><?= $antrian['nama'] ?></td>
                                                     <?php else: ?>
                                                         <td><?= $no ?></td>
-                                                        <td><?= $antrian['kode_antrian'] ?></td>
+                                                        <td><?= $antrian['no_pasien'] ?></td>
                                                     <?php endif; ?>
                                                     <td>
                                                         <?php $stt = $antrian['status']  ?>

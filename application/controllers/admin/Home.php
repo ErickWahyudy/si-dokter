@@ -39,7 +39,7 @@ class Home extends CI_controller
 
 	 $view = array(
         'judul'            	=>'Halaman Administrator',
-        'admin'          	=> $this->db->get_where('tb_admin')->num_rows(),
+        'admin'          	=> $this->db->get_where('tb_admin',1000,1)->num_rows(),
         'dokter'          	=> $this->db->get('tb_dokter')->num_rows(),
 		'count_periksa'    	=> $this->m_count->count_periksa($tgl=date('Y-m-d')),
         'pasien'           	=> $this->m_periksa->namaAntrian($tgl=date('Y-m-d'))->result_array(),

@@ -67,7 +67,11 @@ if($aksi == "riwayat"):
                 <div class="modal-body table-responsive">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td class="col-md-3">Nama</nama>
+                            <td class="col-md-3">Nomor Pasien</td>
+                            <td><?= $antrian['no_pasien'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</nama>
                             <td><?= $antrian['nama'] ?></td>
                         </tr>
                         <tr>

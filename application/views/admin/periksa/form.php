@@ -39,7 +39,7 @@ if($aksi == "verifikasi"):
                 </td>
                 <td>
                 <a href="" class="btn btn-default" data-toggle="modal" data-target="#detail<?= $antrian['id_antrian'] ?>" title="Detail Data"><i class="fa fa-eye"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=<?= $antrian['no_hp'] ?>/&text=Assalamualaikum%20Sdr/i%20<?= $antrian['nama'] ?>.%0AKami%20dari%20Klinik%20Dr.%20Bambang%20SpOG%20mengingatkan,%20bahwa%20anda%20telah%20mendaftar%20untuk%20periksa%20pada%20tanggal%20<?= tgl_indo($antrian['tgl_periksa']) ?>%20waktu%20pagi.%0AMohon%20untuk%20selalu%20memantau%20nomor%20antrian%20anda%20di%20Web%20Aplikasi%20kami%20https://klinikdrbambang.com%0ASehingga%20waktu%20kedatangan%20anda%20bisa%20menyesuaikan%20dengan%20nomor%20antrian%20anda.%0ATerima%20Kasih%0A%0A~%20Klinik%20Dr.%20Bambang%20SpOG%20~" class="btn btn-success" title="Kirim Pesan" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=<?= $antrian['no_hp'] ?>/&text=Assalamualaikum%20Sdr/i%20<?= $antrian['nama'] ?>.%0AKami%20dari%20<?= $meta_deskripsi ?>%20mengingatkan,%20bahwa%20anda%20telah%20mendaftar%20untuk%20periksa%20pada%20tanggal%20<?= tgl_indo($antrian['tgl_periksa']) ?>.%0AMohon%20untuk%20selalu%20memantau%20nomor%20antrian%20anda%20di%20Web%20Aplikasi%20kami%20<?= base_url() ?>%0ASehingga%20waktu%20kedatangan%20anda%20bisa%20menyesuaikan%20dengan%20urutan%20nomor%20antrian%20anda.%0ATerima%20Kasih%0A%0A~%20<?= $meta_deskripsi ?>%20~" class="btn btn-success" title="Kirim Pesan" target="_blank"><i class="fa fa-whatsapp"></i></a>
                 </td>
                 <td>
                     <a href="javascript:void(0)" onclick="dalam_antrian('<?= $antrian['id_antrian'] ?>')" class="btn btn-info btn-sm" title="Dalam Antrian"><i class="fa fa-check-square-o"></i></a> &nbsp;&nbsp;
@@ -65,7 +65,11 @@ if($aksi == "verifikasi"):
                 <div class="modal-body table-responsive">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td class="col-md-3">Nama</nama>
+                            <td class="col-md-3">Nomor Pasien</td>
+                            <td><?= $antrian['no_pasien'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</nama>
                             <td><?= $antrian['nama'] ?></td>
                         </tr>
                         <tr>
@@ -377,7 +381,11 @@ if($aksi == "verifikasi"):
                 <div class="modal-body table-responsive">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td class="col-md-3">Nama</nama>
+                            <td class="col-md-3">Nomor Pasien</td>
+                            <td><?= $antrian['no_pasien'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</nama>
                             <td><?= $antrian['nama'] ?></td>
                         </tr>
                         <tr>
@@ -591,7 +599,7 @@ if($aksi == "verifikasi"):
                 <a href="" class="btn btn-default" data-toggle="modal" data-target="#detail<?= $antrian['id_antrian'] ?>" title="Detail Data"><i class="fa fa-eye"></i></a>
                 </td>
                 <td>
-                <a href="https://api.whatsapp.com/send?phone=<?= $antrian['no_hp'] ?>/&text=Assalamualaikum%20Sdr/i%20<?= $antrian['nama'] ?>.%0ATerima%20kasih%20telah%20melakukan%20pemeriksaan%20di%20klinik%20Dr.%20Bambang%20SpOG%20.%0AMohon%20bantuannya%20untuk%20memberikan%20rating%20pelayanan%20kami%20di%20https://goo.gl/maps/PrfTMuVWgqoS4faz8%0ASehingga%20kami%20dapat%20memberikan%20pelayanan%20yang%20lebih%20baik%20lagi.%0ATerima%20kasih" class="btn btn-success" title="Kirim Pesan" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=<?= $antrian['no_hp'] ?>/&text=Assalamualaikum%20Sdr/i%20<?= $antrian['nama'] ?>.%0ATerima%20kasih%20telah%20melakukan%20pemeriksaan%20di%20<?= $meta_deskripsi ?>%20.%0AMohon%20bantuannya%20untuk%20memberikan%20rating%20pelayanan%20kami%20di%20<?= $lokasi_praktik ?>%0ASehingga%20kami%20dapat%20meningkatkan%20pelayanan%20kami%20kepada%20anda.%0ATerima%20Kasih%0A%0A~%20<?= $meta_deskripsi ?>%20~" class="btn btn-success" title="Kirim Pesan" target="_blank"><i class="fa fa-whatsapp"></i></a>
                 </td>
             </tr>
             <?php $no++; endforeach; ?>
@@ -613,7 +621,11 @@ if($aksi == "verifikasi"):
                 <div class="modal-body table-responsive">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td class="col-md-3">Nama</nama>
+                            <td class="col-md-3">Nomor Pasien</td>
+                            <td><?= $antrian['no_pasien'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</nama>
                             <td><?= $antrian['nama'] ?></td>
                         </tr>
                         <tr>
@@ -708,7 +720,11 @@ if($aksi == "verifikasi"):
                 <div class="modal-body table-responsive">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td class="col-md-3">Nama</nama>
+                            <td class="col-md-3">Nomor Pasien</td>
+                            <td><?= $antrian['no_pasien'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</nama>
                             <td><?= $antrian['nama'] ?></td>
                         </tr>
                         <tr>

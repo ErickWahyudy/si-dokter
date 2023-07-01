@@ -77,6 +77,7 @@ public function api_add($value='')
     );
   }else{
     $SQLinsert = [
+      'id_admin'            =>$this->id_admin_urut(), // 'A01
       'nama'                =>$this->input->post('nama'),
       'no_hp'               =>$this->input->post('no_hp'),
       'email'               =>$this->input->post('email'),

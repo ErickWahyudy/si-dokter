@@ -21,6 +21,7 @@ class Periksa extends CI_controller
 	};
    $this->load->model('m_periksa');
    $this->load->model('m_pasien');
+   $this->load->model('m_pengaturan');
 	}
 
     //antrian
@@ -48,10 +49,13 @@ class Periksa extends CI_controller
     //antrian
     public function verifikasi($value='')
     {
-     $view = array('judul'     =>'Data Antrian Perlu Verifikasi',
-                   'aksi'      =>'verifikasi',
-                   'data'      =>$this->m_periksa->viewVerifikasi(),
-                   'pasien'    =>$this->db->get('tb_pasien')->result_array(),
+     $pengaturan = $this->m_pengaturan->view()->row_array();
+     
+     $view = array('judul'          =>'Data Antrian Perlu Verifikasi',
+                   'meta_deskripsi' =>$pengaturan['meta_description'],
+                   'aksi'           =>'verifikasi',
+                   'data'           =>$this->m_periksa->viewVerifikasi(),
+                   'pasien'         =>$this->db->get('tb_pasien')->result_array(),
                   );
       $this->load->view('admin/periksa/form',$view);
     }
@@ -59,9 +63,12 @@ class Periksa extends CI_controller
     //antrian
     public function sudah($value='')
     {
-     $view = array('judul'     =>'Sudah Periksa',
-                   'aksi'      =>'sudah',
-                   'data'      =>$this->m_periksa->viewSudah(),
+     $pengaturan = $this->m_pengaturan->view()->row_array();
+     $view = array('judul'            =>'Sudah Periksa',
+                   'meta_deskripsi'   =>$pengaturan['meta_description'],
+                   'lokasi_praktik'   =>$pengaturan['lokasi_praktik'],
+                   'aksi'             =>'sudah',
+                   'data'             =>$this->m_periksa->viewSudah(),
                   );
       $this->load->view('admin/periksa/form',$view);
     }

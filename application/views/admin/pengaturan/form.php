@@ -7,7 +7,7 @@
         <thead>
         <tbody>
             <tr>
-                <th>Judul</th>
+                <th class="col-md-2">Judul</th>
                 <td><?= $pengaturan['nama_judul'] ?></td>
             </tr>
             <tr>
@@ -17,6 +17,12 @@
             <tr>
                 <th>Meta Deskripsi</th>
                 <td><?= $pengaturan['meta_description'] ?></td>
+            </tr>
+            <tr>
+                <th>Link Maps Lokasi Praktik</th>
+                <td>
+                    <a href="<?= $pengaturan['lokasi_praktik'] ?>" target="_blank"><?= $pengaturan['lokasi_praktik'] ?></a>
+                </td>
             </tr>
             <tr>
                 <th>Aksi</th>
@@ -85,6 +91,20 @@
                                 <td>
                                     <input type="text" name="meta_description"
                                         value="<?= $pengaturan['meta_description'] ?>" class="form-control" required autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Link Maps Lokasi Praktik <br>
+                                    <small class="text-info"><i class="fa fa-info-circle"></i> Link Maps Bisa Dilihat 
+                                        <a href="https://www.google.com/maps" target="_blank"><u>Disini</u></a>
+                                    </small>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="lokasi_praktik"
+                                        value="<?= $pengaturan['lokasi_praktik'] ?>" class="form-control" required autocomplete="off">
                                 </td>
                             </tr>
 

@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>No Pasien</th>
                 <th>Nama</th>
                 <th>No HP</th>
                 <th>Alamat</th>
@@ -23,6 +24,7 @@
             <?php $no=1; foreach($data->result_array() as $pasien): ?>
             <tr>
                 <td><?= $no ?></td>
+                <td><?= $pasien['no_pasien'] ?></td>
                 <td><?= $pasien['nama'] ?></td>
                 <td><?= $pasien['no_hp'] ?></td>
                 <td><?= $pasien['alamat'] ?></td>

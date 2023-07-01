@@ -8,7 +8,13 @@ if($aksi == "lihat"):
 <table class="table table-striped">
     <form action="" method="POST" enctype="multipart/form-data">
         <tr>
-            <th class="col-md-2">Nama</th>
+            <th class="col-md-2">Nomor Pasien</th>
+            <td>
+                : <?= $no_pasien ?>
+            </td>
+        </tr>
+        <tr>
+            <th>Nama</th>
             <td>
                 : <?= $nama ?>
             </td>
@@ -95,7 +101,7 @@ if($aksi == "lihat"):
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="no_hp" value="<?= $no_hp ?>" class="form-control" autocomplete="off" required>
+                                    <input type="number" name="no_hp" value="<?= $no_hp ?>" class="form-control" autocomplete="off" required>
                                 </td>
                             </tr>
                             <tr>
