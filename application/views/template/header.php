@@ -139,7 +139,7 @@ if($this->session->userdata('level') =="Administrator"){
               <?php if($this->session->userdata('level') == "Administrator"){ ?>
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="<?= base_url('admin/user_admin') ?>" class="btn btn-default btn-flat">Profile</a>
+                  <a href="<?= base_url('admin/profile') ?>" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                 <a href="javascript:void(0)" onclick="keluar()" class="btn btn-default btn-flat">Sign out</a>
