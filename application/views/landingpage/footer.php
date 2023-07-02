@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <?php echo date('Y'); ?> <a href="#"><?= $nama_judul ?></a>, All Right Reserved.
+                        &copy; <?php echo date('Y'); ?> <a href="#"><?= $nama_judul ?></a> | <a href="#"><?= $meta_keywords ?></a> | <a href="#"><?= $meta_description ?></a> | All Rights Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <!--/*** This themes is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the themes without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->

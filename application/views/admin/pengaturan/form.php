@@ -7,16 +7,12 @@
         <thead>
         <tbody>
             <tr>
-                <th class="col-md-2">Judul</th>
-                <td><?= $pengaturan['nama_judul'] ?></td>
-            </tr>
-            <tr>
-                <th>Meta Keywords</th>
-                <td><?= $pengaturan['meta_keywords'] ?></td>
-            </tr>
-            <tr>
-                <th>Meta Deskripsi</th>
+                <th class="col-md-2"h>Nama Klinik</th>
                 <td><?= $pengaturan['meta_description'] ?></td>
+            </tr>
+            <tr>
+                <th>Kata Kunci Aplikasi</th>
+                <td><?= $pengaturan['meta_keywords'] ?></td>
             </tr>
             <tr>
                 <th>Link Maps Lokasi Praktik</th>
@@ -67,25 +63,7 @@
                         <form id="edit" method="post">
                             <input type="hidden" name="id_pengaturan" value="<?= $pengaturan['id_pengaturan'] ?>" class="form-control" readonly>
                             <tr>
-                                <th class="">Judul</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="nama_judul"
-                                        value="<?= $pengaturan['nama_judul'] ?>" class="form-control" required autocomplete="off">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="">Meta Keywords</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="meta_keywords"
-                                        value="<?= $pengaturan['meta_keywords'] ?>" class="form-control" required autocomplete="off">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th> Meta Deskripsi</th>
+                                <th>Nama Klinik</th>
                             </tr>
                             <tr>
                                 <td>
@@ -93,10 +71,21 @@
                                         value="<?= $pengaturan['meta_description'] ?>" class="form-control" required autocomplete="off">
                                 </td>
                             </tr>
+
+                            <tr>
+                                <th class="">Kata Kunci Aplikasi</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="meta_keywords"
+                                        value="<?= $pengaturan['meta_keywords'] ?>" class="form-control" required autocomplete="off">
+                                </td>
+                            </tr>
+                            
                             <tr>
                                 <th>
                                     Link Maps Lokasi Praktik <br>
-                                    <small class="text-info"><i class="fa fa-info-circle"></i> Link Maps Bisa Dilihat 
+                                    <small class="text-info"><i class="fa fa-info-circle"></i> Link Maps Bisa Dibuka 
                                         <a href="https://www.google.com/maps" target="_blank"><u>Disini</u></a>
                                     </small>
                                 </th>
@@ -104,7 +93,7 @@
                             <tr>
                                 <td>
                                     <input type="text" name="lokasi_praktik"
-                                        value="<?= $pengaturan['lokasi_praktik'] ?>" class="form-control" required autocomplete="off">
+                                        value="<?= $pengaturan['lokasi_praktik'] ?>" class="form-control" required autocomplete="off" placeholder="https://goo.gl/maps/xxxxxxxxxxxxx">
                                 </td>
                             </tr>
 

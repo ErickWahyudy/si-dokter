@@ -43,11 +43,6 @@ class Pengaturan extends CI_controller
       {
         $rules = array(
           array(
-            'field' => 'nama_judul',
-            'label' => 'nama_judul',
-            'rules' => 'required'
-          ),
-          array(
             'field' => 'meta_keywords',
             'label' => 'meta_keywords',
             'rules' => 'required'
@@ -71,7 +66,6 @@ class Pengaturan extends CI_controller
           ];
         } else {
           $SQLupdate = [
-            'nama_judul'        => $this->input->post('nama_judul'),
             'meta_keywords'     => $this->input->post('meta_keywords'),
             'meta_description'  => $this->input->post('meta_description'),
             'lokasi_praktik'    => $this->input->post('lokasi_praktik')
@@ -112,7 +106,7 @@ class Pengaturan extends CI_controller
     {
       if ($_FILES['foto']['name'] != '') {
       $config['upload_path']          = './themes/foto_logo/';
-      $config['allowed_types']        = 'gif|jpg|png|jpeg|JPEG|JPG|PNG';
+      $config['allowed_types']        = 'gif|jpg|png|jpeg|JPEG|JPG|PNG|png|bmp|BMP';
       $config['max_size']             = 10000;
       $config['max_width']            = 10000;
       $config['max_height']           = 10000;
@@ -124,7 +118,7 @@ class Pengaturan extends CI_controller
         redirect('admin/judul');
       } else {
         $data = array('upload_data' => $this->upload->data());
-        $this->compress($data['upload_data']['full_path'], $data['upload_data']['full_path'], 40);
+        $this->compress($data['upload_data']['full_path'], $data['upload_data']['full_path'], 70);
         return $data['upload_data']['file_name'];
       }
     } else {
