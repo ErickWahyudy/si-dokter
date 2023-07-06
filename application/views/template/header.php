@@ -66,7 +66,10 @@
 <div class="wrapper">
 <?php
 //error_reporting(0);
-if($this->session->userdata('level') =="Administrator"){
+if($this->session->userdata('level') =="Superadmin"){
+  $id  = $this->session->userdata('id_admin');
+  $data= $this->db->get_where('tb_admin',array('id_admin'=>$id))->row_array();
+ }elseif($this->session->userdata('level') =="Administrator"){
  $id  = $this->session->userdata('id_admin');
  $data= $this->db->get_where('tb_admin',array('id_admin'=>$id))->row_array();
 }elseif($this->session->userdata('level') == "Dokter"){
@@ -101,7 +104,9 @@ if($this->session->userdata('level') =="Administrator"){
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <?php if($this->session->userdata('level') == "Administrator"){ ?>
+            <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+              <img src="<?= base_url('themes/admin') ?>/dist/admin.png" class="user-image" width="20%" alt="User Image">
+              <?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
               <img src="<?= base_url('themes/admin') ?>/dist/admin.png" class="user-image" width="20%" alt="User Image">
               <?php }elseif($this->session->userdata('level') == "Dokter"){ ?>
                     <img src="<?= base_url('themes/admin') ?>/dist/dokter.png" class="user-image" width="20%" alt="User Image">
@@ -113,7 +118,9 @@ if($this->session->userdata('level') =="Administrator"){
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <?php if($this->session->userdata('level') == "Administrator"){ ?>
+              <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+                  <img src="<?= base_url('themes/admin') ?>/dist/admin.png" class="img-circle" width="20%" alt="User Image"> <br>
+                  <?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
                   <img src="<?= base_url('themes/admin') ?>/dist/admin.png" class="img-circle" width="20%" alt="User Image"> <br>
                   <?php }elseif($this->session->userdata('level') == "Dokter"){ ?>
                       <img src="<?= base_url('themes/admin') ?>/dist/dokter.png" class="img-circle" width="20%" alt="User Image"> <br>
@@ -124,7 +131,9 @@ if($this->session->userdata('level') =="Administrator"){
                   <?= $data['nama'] ?> <br>
                   <span class="label label-warning">
                   <small>
-                        <?php if($this->session->userdata('level') == "Administrator"){ ?>
+                        <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+                        <span>Superadmin</span>
+                          <?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
                         <span>Administrator</span>
                           <?php }elseif($this->session->userdata('level') == "Dokter"){ ?>
                           <span>Dokter</span> 
@@ -136,7 +145,16 @@ if($this->session->userdata('level') =="Administrator"){
                 </p>
               </li>
               
-              <?php if($this->session->userdata('level') == "Administrator"){ ?>
+              <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="<?= base_url('admin/profile') ?>" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                <a href="javascript:void(0)" onclick="keluar()" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+              <?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
               <li class="user-footer">
                 <div class="pull-left">
                   <a href="<?= base_url('admin/profile') ?>" class="btn btn-default btn-flat">Profile</a>
@@ -183,7 +201,9 @@ if($this->session->userdata('level') =="Administrator"){
         <div class="pull-left image">
           <br /><br />
         </div>
-          <?php if($this->session->userdata('level') == "Administrator"){ ?>
+           <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+            <img src="<?= base_url('themes/admin') ?>/dist/admin.png" class="img-circle" width="20%" alt="User Image">
+            <?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
             <img src="<?= base_url('themes/admin') ?>/dist/admin.png" class="img-circle" width="20%" alt="User Image">
             <?php }elseif($this->session->userdata('level') == "Dokter"){ ?>
               <img src="<?= base_url('themes/admin') ?>/dist/dokter.png" class="img-circle" width="20%" alt="User Image">
@@ -192,7 +212,9 @@ if($this->session->userdata('level') =="Administrator"){
           <?php } ?> 
         <span class="pull-left info"><?= ucfirst($data['nama']) ?> <br><br>
         <small class="label label-warning">
-                <?php if($this->session->userdata('level') == "Administrator"){ ?>
+                <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+                <span>Superadmin</span>
+                  <?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
                 <span>Administrator</span>
                   <?php }elseif($this->session->userdata('level') == "Dokter"){ ?>
                   <span>Dokter</span>     
@@ -208,7 +230,43 @@ if($this->session->userdata('level') =="Administrator"){
         <li class="header">MAIN NAVIGATION</li>
        
 
-<?php if($this->session->userdata('level') == "Administrator"){ ?>
+  <?php if($this->session->userdata('level') == "Superadmin"){ ?>
+  <li class="">
+          <a href="<?= base_url('superadmin/home') ?>">
+            <i class="fa fa-dashboard"></i> <span>Dasboard</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">Home</small>
+            </span>
+          </a>
+        </li>
+        <li><a href="<?= base_url('superadmin/verifikasi') ?>"><i class="fa fa-qrcode"></i> <span>Scan QR Code</span></a></li>
+        <li class="header">OLAH DATA</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-stethoscope"></i> <span>Data Periksa</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu active">
+          <li><a href="<?= base_url('superadmin/periksa/antrian') ?>" class="active"><i class="fa fa-clock-o"></i>Antrian Periksa</a></li>
+          <li><a href="<?= base_url('superadmin/periksa/verifikasi') ?>"><i class="fa fa-search"></i>Perlu Verifikasi</a></li>
+          <li><a href="<?= base_url('superadmin/periksa/sudah') ?>"><i class="fa fa-check-square-o"></i>Sudah Diperiksa</a></li>
+          <li><a href="<?= base_url('superadmin/periksa/batal') ?>"><i class="fa fa-ban"></i>Batal Diperiksa</a></li>
+          </ul>
+        </li>
+      <li><a href="<?= base_url('superadmin/pengaturan/jadwal_praktek'); ?>"><i class="fa fa-calendar"></i> <span>Jadwal Praktek</span></a></li>
+      <li><a href="<?= base_url('superadmin/pasien'); ?>"><i class="fa fa-users"></i> <span>Data Pasien</span></a></li>
+      <li><a href="<?= base_url('superadmin/dokter'); ?>"><i class="fa fa-user-md"></i> <span>Data dokter</span></a></li>
+      <li><a href="<?= base_url('superadmin/user_admin') ?>" class="active"><i class="fa  fa-buysellads"></i> <span>Data Admin</span></a></li>
+ 
+      <li class="header">OTHER</li>
+      <li><a href="<?= base_url('superadmin/informasi'); ?>"><i class="fa fa-bullhorn"></i> <span>Layanan Informasi</span></a></li>
+      <li><a href="<?= base_url('superadmin/profile'); ?>"><i class="fa fa-user"></i> <span>Akun Profile</span></a></li>
+      <li><a href="<?= base_url('superadmin/pengaturan'); ?>"><i class="fa fa-gear"></i> <span>Pengaturan</span></a></li>
+      
+
+<?php }elseif($this->session->userdata('level') == "Administrator"){ ?>
   <li class="">
           <a href="<?= base_url('admin/home') ?>">
             <i class="fa fa-dashboard"></i> <span>Dasboard</span>

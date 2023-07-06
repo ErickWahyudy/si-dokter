@@ -29,11 +29,27 @@ class Login extends CI_controller
       $password=$this->input->post('password');
      
      //cek data login
-     $admin   = $this->Login_m->Admin($nama,$email,$no_hp,md5($password));
-     $dokter  = $this->Login_m->Dokter($nama,$email,$no_hp,md5($password));
-     $pasien  = $this->Login_m->Pasien($nama,$email,$no_hp,md5($password));
+     $superadmin  = $this->Login_m->Superadmin($nama,$email,$no_hp,md5($password));
+     $admin       = $this->Login_m->Admin($nama,$email,$no_hp,md5($password));
+     $dokter      = $this->Login_m->Dokter($nama,$email,$no_hp,md5($password));
+     $pasien      = $this->Login_m->Pasien($nama,$email,$no_hp,md5($password));
      
-     if($admin->num_rows() > 0 ){
+     if($superadmin->num_rows() > 0 ){
+      $DataSuperadmin=$superadmin->row_array();
+      $sessionSuperadmin = array(
+          'superadmin'        => TRUE,
+          'id_admin'          => $DataSuperadmin['id_admin'],
+          'email'             => $DataSuperadmin['email'],
+          'password'          => $DataSuperadmin['password'],
+          'nama'              => $DataSuperadmin['nama'],
+          'no_hp'             => $DataSuperadmin['no_hp'],
+          'level'             => $DataSuperadmin['level'] );        
+      $this->session->set_userdata($sessionSuperadmin);
+      $this->session->set_flashdata('pesan','<div class="btn btn-primary">Anda Berhasil Login .....</div>');
+      redirect(base_url('superadmin/home'));
+
+
+      }elseif($admin->num_rows() > 0 ){
         $DataAdmin=$admin->row_array();
         $sessionAdmin = array(
             'admin'             => TRUE,

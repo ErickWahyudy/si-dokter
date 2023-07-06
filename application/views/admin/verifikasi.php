@@ -14,51 +14,69 @@
     </div>
 </div>
 
-	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-	<script type="text/javascript">
-		var scanner = new Instascan.Scanner({ video: document.getElementById('video') });
-		scanner.addListener('scan', function (content) {
-			// document.getElementById('result').innerHTML = content;
-			$.ajax({
-				url: "<?php echo base_url('admin/verifikasi/scan'); ?>" + "/" + content,
-				type: "POST",
-				data: {
-					qr: content
-				},
-				success: function(response) {
-					swal({
-                        title: "Berhasil",
-                        text: "Berhasil verifikasi antrian pasien",
-                        type: "success",
-                        timer: 1000, // 3 detik
-                        buttons: false, // menghilangkan tombol OK
-                    }).then(function() {
-                        var audio = new Audio('<?= base_url('themes/admin/mp3/beep.mp3'); ?>');
-                        audio.play();
-                    });
-                },
-                error: function(xhr, status, error) {
-                    swal({
-                        title: "Gagal",
-                        text: "Gagal verifikasi antrian pasien",
-                        type: "error",
-                        button: "OK",
-                    }).then(function() {
-                       location.reload();
-                    });
-                }
-            });
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<script type="text/javascript">
+    var scanner = new Instascan.Scanner({ video: document.getElementById('video') });
+    scanner.addListener('scan', function (content) {
+        // document.getElementById('result').innerHTML = content;
+        $.ajax({
+            url: "<?php echo base_url('admin/verifikasi/scan'); ?>" + "/" + content,
+            type: "POST",
+            data: {
+                qr: content
+            },
+            success: function(response) {
+                swal({
+                    title: "Berhasil",
+                    text: "Berhasil verifikasi antrian pasien",
+                    type: "success",
+                    timer: 1000, // 3 detik
+                    buttons: false, // menghilangkan tombol OK
+                }).then(function() {
+                    var audio = new Audio('<?= base_url('themes/admin/mp3/beep.mp3'); ?>');
+                    audio.play();
+                });
+            },
+            error: function(xhr, status, error) {
+                swal({
+                    title: "Gagal",
+                    text: "Gagal verifikasi antrian pasien",
+                    type: "error",
+                    button: "OK",
+                }).then(function() {
+                   location.reload();
+                });
+            }
         });
-        Instascan.Camera.getCameras().then(function (cameras) {
-			if (cameras.length > 0) {
-				scanner.start(cameras[0]);
-			} else {
-				console.error('No cameras found.');
-			}
-		}).catch(function (e) {
-			console.error(e);
-		});
-        
-	</script>
+    });
+
+    Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+            var select = document.createElement("select");
+            select.setAttribute("id", "camera-select");
+
+            cameras.forEach(function(camera, index) {
+                var option = document.createElement("option");
+                option.value = index;
+                option.text = camera.name;
+                select.appendChild(option);
+            });
+
+            select.addEventListener("change", function(event) {
+                var selectedCameraIndex = event.target.value;
+                scanner.stop();
+                scanner.start(cameras[selectedCameraIndex]);
+            });
+
+            document.body.appendChild(select);
+
+            scanner.start(cameras[0]);
+        } else {
+            console.error('No cameras found.');
+        }
+    }).catch(function (e) {
+        console.error(e);
+    });
+</script>
 
 <?php $this->load->view('template/footer'); ?>

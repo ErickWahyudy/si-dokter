@@ -13,7 +13,8 @@ public function view($value='')
 {
  $this->db->select ('*');
   $this->db->from ($this->table);
-  $this->db->limit(1000,1);
+  $this->db->limit(1000,0);
+  $this->db->where('level', 'Administrator');
   $this->db->order_by('id_admin');
   return $this->db->get();
 }
