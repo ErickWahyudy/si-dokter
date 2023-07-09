@@ -85,7 +85,7 @@ $(window).on('load', function() {
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="number" class="form-control" id="no_hp" name="no_hp" placeholder="No HP / WA" value="62" autocomplete="off" required>
-                                    <label for="no_hp">Nomor HP / WA</label>
+                                    <label for="no_hp">Nomor HP / WA <small>(aktif)</small></label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -115,13 +115,13 @@ $(window).on('load', function() {
                             <div class="col-md-12">
                                 <div class="form-floating">
                                     <input type="email" class="form-control" name="email" placeholder="Email" autocomplete="off" required>
-                                    <label for="email">Email</label>
+                                    <label for="email">Email <small>(email aktif hp anda)</small></label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" required>
-                                    <label for="password">Password</label>
+                                    <label for="password">Password <small>(bebas yg penting mudah diingat)</small></label>
                                     <input type="checkbox" onclick="viewPassword()"> Lihat Password
                                 </div>
                             </div>

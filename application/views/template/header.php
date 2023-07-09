@@ -7,8 +7,8 @@
   <!-- Tell the browser to be responsive to screen width -->
   <?php  $nama_judul = $this->db->get('tb_pengaturan')->row_array(); ?>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <meta name="keywords" content="<?= $nama_judul['nama_judul'] ?>, <?= $nama_judul['meta_keywords'] ?>, <?= $nama_judul['meta_description'] ?>, kassandra my id, kassandra wifi, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
-  <meta name="description" content="<?= $nama_judul['nama_judul'] ?>, <?= $nama_judul['meta_keywords'] ?>, <?= $nama_judul['meta_description'] ?>">
+  <meta name="keywords" content="<?= $nama_judul['meta_description'] ?>, <?= $nama_judul['nama_judul'] ?>, <?= $nama_judul['meta_keywords'] ?>, kassandra my id, kassandra wifi, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
+  <meta name="description" content="<?= $nama_judul['meta_description'] ?>, <?= $nama_judul['nama_judul'] ?>, <?= $nama_judul['meta_keywords'] ?>">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= base_url('themes/admin') ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->

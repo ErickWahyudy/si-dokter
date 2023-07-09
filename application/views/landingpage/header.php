@@ -5,16 +5,15 @@
     <meta charset="utf-8">
     <title><?= $nama_judul ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="keywords" content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
-    <meta name="description" content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>">
+    <meta name="keywords" content="<?= $meta_description ?>, <?= $nama_judul ?>, <?= $meta_keywords ?>, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
+    <meta name="description" content="<?= $meta_description ?>, <?= $nama_judul ?>, <?= $meta_keywords ?>">
  	<meta name="author" content="KASSANDRA, KASSANDRA HD PRODUCTION">
     <meta content='index,follow' name='robots'/>
     
     <link rel="manifest" href="<?= base_url('static/manifest.json') ?>">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?= base_url('themes') ?>/favicon.ico" type="image/x-icon">
-    <link href="<?= base_url('themes') ?>favicon.ico" rel="icon">
+    <link rel="icon" href="<?= base_url('themes') ?>/favicon.ico" type="image/x-icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,12 +85,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav me-auto p-3 p-lg-0">
                 <a href="register" class="nav-item nav-link <?php if($this->uri->segment(1)=="register"){echo "active";}?>">Home</a>
-                <div class="nav-item dropdown">
+                <a href="login" class="nav-item nav-link <?php if($this->uri->segment(1)=="login"){echo "active";}?>">Login Aplikasi</a>
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login Aplikasi</a>
                     <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0">
                         <a href="login" target="" class="dropdown-item">Login</a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- <a href="register" target="" class="btn btn-sm btn-light rounded-pill py-2 px-4">Daftar sekarang ?</a> -->
         </div>

@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?= $judul ?> <?= $nama_judul ?></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <meta name="keywords" content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>, wifi kassandra my id, kassandra my id, kassandra wifi, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
-  <meta name="description" content="<?= $nama_judul ?>, <?= $meta_keywords ?>, <?= $meta_description ?>">
+  <meta name="keywords" content="<?= $meta_description ?>, <?= $nama_judul ?>, <?= $meta_keywords ?>, kassandra, kassandra hd production, KASSANDRA, KASSANDRA HD PRODUCTION">
+  <meta name="description" content="<?= $meta_description ?>, <?= $nama_judul ?>, <?= $meta_keywords ?>">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -20,7 +20,7 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="<?= base_url('themes/admin/') ?>/plugins/iCheck/square/blue.css">
   <!-- Favicon -->
-  <link href="<?= base_url('themes/landingpage') ?>/img/favicon.ico" rel="icon">
+  <link rel="icon" href="<?= base_url('themes') ?>/favicon.ico" type="image/x-icon">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
