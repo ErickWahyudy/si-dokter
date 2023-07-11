@@ -13,7 +13,7 @@
                         <div class="small-box bg-primary">
                             <div class="inner text-center">
                             <!-- <img src="<?php echo base_url('pasien/verifikasi/QRcode/'.$uuid) ?>" style="width: 150px"> -->
-                            <p>Tunjukkan QR Code ini ke resepsionis untuk verifikasi saat kamu datang ke klinik</p>
+                            <p>Tunjukkan QR Code ini ke resepsionis untuk verifikasi saat anda datang ke klinik</p>
                             <a href="<?php echo base_url('pasien/verifikasi/QRcode/'.$uuid) ?>" class="btn btn-default" title="Buka QRcode" target="_blank"><i class="fa fa-qrcode"></i> Buka QRcode</a>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="box-body">
                         <div class="alert alert-info">
                             <h4><i class="icon fa fa-warning"></i> Perhatian !</h4>
-                            Kamu belum membuat antrian baru, silahkan klik tombol Daftar Periksa untuk membuat antrian
+                            anda belum membuat antrian baru, silahkan klik tombol Daftar Periksa untuk membuat antrian
                             baru
                         </div>
                     </div>
@@ -78,11 +78,11 @@
                 <div class="box-header with-border">
                     <i class="fa fa-calendar"></i>
                     <b style="font-size: 12pt">
-                        Tgl Periksa Kamu : <?= tgl_indo($tgl_periksa) ?>
+                        Tgl Periksa anda : <?= tgl_indo($tgl_periksa) ?>
                         <a href="<?= base_url('pasien/periksa/riwayat') ?>" class="btn btn-primary"><i class="fa fa-history"></i>
-                            Data Periksa Kamu</a>
+                            Data Periksa anda</a>
                     </b> <br>
-                    <p>Tunjukkan QR Code ini ke resepsionis untuk verifikasi saat kamu datang ke klinik</p>
+                    <p>Tunjukkan QR Code ini ke resepsionis untuk verifikasi saat anda datang ke klinik</p>
                     <a href="<?php echo base_url('pasien/verifikasi/QRcode/'.$uuid) ?>" class="btn btn-default" title="Buka QRcode" target="_blank"><i class="fa fa-qrcode"></i> Buka QRcode</a>
                     <?php else: ?>
                     <div class="col-lg-4 col-xs-6">
@@ -117,7 +117,7 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-calendar"></i>
                                     <b style="font-size: 12pt">
-                                        Tgl Periksa Kamu : <?= tgl_indo($tgl_periksa) ?>
+                                        Tgl Periksa anda : <?= tgl_indo($tgl_periksa) ?>
                                     </b>
                                     <div class="table">
                                         <table id="example" class="table table-bordered  table-striped">
@@ -189,7 +189,7 @@
                                             <tr>
                                 <th></th>
                                 <th class="text-right">
-                                    Kamu harus datang ke klinik :
+                                    anda harus datang ke klinik :
                                 </th>
                                 <th>
                                 <?php 
@@ -207,7 +207,7 @@
 
 
                                     }
-                                    ?> menit sebelum waktu antrian kamu
+                                    ?> menit sebelum waktu antrian anda
                                 <?php endif; ?>
                                 </th>
                                 </tr>

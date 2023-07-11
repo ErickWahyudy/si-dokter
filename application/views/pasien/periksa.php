@@ -128,7 +128,7 @@ if($aksi == "riwayat"):
                             <tr>
                                 <td>
                                     <textarea name="keluhan" class="form-control" required="" rows="5" autocomplete="off"
-                                        placeholder="Keluhan"></textarea>
+                                        placeholder="Jika tidak ada keluhan, silahkan isi dengan keterangan 'Periksa Rutin'"></textarea>
                                 </td>
                             </tr>
                             <tr>

@@ -47,12 +47,12 @@
                     </div>
                 </div>
             </div>
-            <div class="text-left"> <br>
+            <div class="text-center">
                 <a href="<?= base_url('login') ?>" class="btn btn-primary">Login Aplikasi</a>
-            </div>
-            <div class="modal-footer">
+            </div><br>
+            <div class="text-center">
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Daftar akun baru (klik disini)</button>
-            </div>
+            </div><br>
         </div>
     </div>
 </div>
@@ -85,7 +85,7 @@ $(window).on('load', function() {
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="number" class="form-control" id="no_hp" name="no_hp" placeholder="No HP / WA" value="62" autocomplete="off" required>
-                                    <label for="no_hp">Nomor HP / WA <small>(aktif)</small></label>
+                                    <label for="no_hp">Nomor HP / WA <small>(6287763123456)</small></label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -115,7 +115,7 @@ $(window).on('load', function() {
                             <div class="col-md-12">
                                 <div class="form-floating">
                                     <input type="email" class="form-control" name="email" placeholder="Email" autocomplete="off" required>
-                                    <label for="email">Email <small>(email aktif hp anda)</small></label>
+                                    <label for="email">Email <small>(aa@gmail.com)</small></label>
                                 </div>
                             </div>
                             <div class="col-12">

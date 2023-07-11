@@ -58,7 +58,7 @@
 			</center>
     <form action="" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="email" placeholder="Email / Username / No HP" required="" autocomplete="off">
+        <input type="text" class="form-control" name="email" placeholder="Nama / Email / No. HP" required="" autocomplete="off">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
