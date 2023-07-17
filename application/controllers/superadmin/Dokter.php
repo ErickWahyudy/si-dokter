@@ -1,4 +1,13 @@
 <?php
+/**
+ * PHP for Codeigniter
+ *
+ * @package        	CodeIgniter
+ * @pengembang		Kassandra Production (https://kassandra.my.id)
+ * @Author			@erikwahyudy
+ * @version			3.0
+ */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
