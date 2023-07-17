@@ -86,7 +86,7 @@ class Periksa extends CI_controller
 
     private function acak_id($panjang)
     {
-        $karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+        $karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
         $string = '';
         for ($i = 0; $i < $panjang; $i++) {
             $pos = rand(0, strlen($karakter) - 1);
@@ -329,6 +329,43 @@ class Periksa extends CI_controller
           'catatan'                   =>$this->input->post('catatan'),
           'status'                    =>'S',
           'waktu_keluar'              =>$this->waktu()
+        ];
+        if ($this->m_periksa->update($id, $SQLupdate)) {
+          $response = [
+            'status' => true,
+            'message' => 'Berhasil mengubah data'
+          ];
+        } else {
+          $response = [
+            'status' => false,
+            'message' => 'Gagal mengubah data'
+          ];
+        }
+      }
+      $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($response));
+    }
+
+    //API edit tgl_periksa
+    public function api_edit($id='', $SQLupdate='')
+    {
+      $rules = array(
+        array(
+          'field' => 'tgl_periksa',
+          'label' => 'tgl_periksa',
+          'rules' => 'required'
+        )
+      );
+      $this->form_validation->set_rules($rules);
+      if ($this->form_validation->run() == FALSE) {
+        $response = [
+          'status' => false,
+          'message' => 'Tidak ada data'
+        ];
+      } else {
+        $SQLupdate = [
+          'tgl_periksa'       =>$this->input->post('tgl_periksa'),
         ];
         if ($this->m_periksa->update($id, $SQLupdate)) {
           $response = [

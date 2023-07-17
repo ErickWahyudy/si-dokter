@@ -22,7 +22,10 @@ if($aksi == "verifikasi"):
         <tbody>
             <?php $no=1; foreach($data->result_array() as $antrian): ?>
             <tr>
-                <td><?= $no ?></td>
+                <td>
+                    <?= $no ?>
+                    <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit<?= $antrian['id_antrian'] ?>"><i class="fa fa-edit"></i></a>
+                </td>
                 <td><?= $antrian['nama'] ?></td>
                 <td><?= tgl_indo($antrian['tgl_periksa']) ?></td>
                 <td>
@@ -170,6 +173,66 @@ if($aksi == "verifikasi"):
     </div>
     <!-- End Modal -->
 
+    
+    <!-- Modal edit data antrian-->
+    <?php foreach($data->result_array() as $antrian): ?>
+    <div class="modal fade" id="edit<?= $antrian['id_antrian'] ?>" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-purple">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit <?= $judul ?></h4>
+                </div>
+                <div class="modal-body table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <form id="edit" method="post">
+                            <tr>
+                                <th>ID antrian</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="id_antrian" value="<?= $antrian['id_antrian'] ?>"
+                                        class="form-control" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Nama</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="nama" value="<?= $antrian['nama'] ?>" class="form-control" autocomplete="off"
+                                        readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Tgl Periksa</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="date" name="tgl_periksa" value="<?= $antrian['tgl_periksa'] ?>"
+                                        class="form-control" required="">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
+                                    &nbsp;&nbsp;
+                                    <input type="submit" name="kirim" value="Simpan" class="btn btn-success"> &nbsp;&nbsp;
+                                </td>
+                            </tr>
+
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    <!-- End Modal -->
+
     <script>
          //add data
     $(document).ready(function() {
@@ -197,6 +260,46 @@ if($aksi == "verifikasi"):
                     });
                 }
             });
+        });
+    });
+
+    //edit file
+    $(document).on('submit', '#edit', function(e) {
+        e.preventDefault();
+        var form_data = new FormData(this);
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('superadmin/periksa/api_edit/') ?>" + form_data.get('id_antrian'),
+            dataType: "json",
+            data: form_data,
+            processData: false,
+            contentType: false,
+            //memanggil swall ketika berhasil
+            success: function(data) {
+                $('#edit' + form_data.get('id_antrian'));
+                swal({
+                    title: "Berhasil",
+                    text: "Data Berhasil Diubah",
+                    type: "success",
+                    showConfirmButton: true,
+                    confirmButtonText: "OKEE",
+                }).then(function() {
+                    location.reload();
+                });
+            },
+            //memanggil swall ketika gagal
+            error: function(data) {
+                swal({
+                    title: "Gagal",
+                    text: "Data Gagal Diubah",
+                    type: "error",
+                    showConfirmButton: true,
+                    confirmButtonText: "OKEE",
+                }).then(function() {
+                    location.reload();
+                });
+            }
         });
     });
 
