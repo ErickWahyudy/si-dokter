@@ -114,7 +114,7 @@ $(window).on('load', function() {
                             </div>
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" autocomplete="off" required>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
                                     <label for="email">Email <small>(aa@gmail.com)</small></label>
                                 </div>
                             </div>
