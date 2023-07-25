@@ -300,6 +300,35 @@ class Periksa extends CI_controller
       echo json_encode($response);
     }
 
+    //API batal_periksa
+    public function batal_periksa($id='') {
+      if(empty($id)){
+        $response = [
+          'status' => false,
+          'message' => 'Tidak ada data yang dipilih'
+        ];
+      }else{
+        $SQLupdate=array(
+          'status'                    =>'BTL'
+        );
+        $cek=$this->m_periksa->update($id,$SQLupdate);
+        if($cek){
+          $response = [
+            'status' => true,
+            'message' => 'Berhasil'
+          ];
+          //mengirim email ke pelanggan dengan phpmailer
+          //dibawahini untuk script phpmailer
+        }else{
+          $response = [
+            'status' => false,
+            'message' => 'Gagal'
+          ];
+        }
+      }
+      echo json_encode($response);
+    }
+
     private function waktu($value='')
     {
       //gmt +7

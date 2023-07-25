@@ -111,6 +111,8 @@ public function viewAntrianPasien($tgl='')
   $this->db->join ($this->table2, 'tb_pasien.id_pasien = tb_periksa.id_pasien');
   $this->db->where('tgl_periksa', $tgl);
   $this->db->where_in('status', array('PV', 'ANTRI', 'DIPERIKSA', 'S'));
+  // Order by id_antrian ASC and status PV last
+  $this->db->order_by("CASE WHEN status = 'PV' THEN 1 ELSE 0 END", 'ASC');
   $this->db->order_by('id_antrian', 'ASC');
   return $this->db->get();
 }

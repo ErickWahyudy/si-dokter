@@ -117,7 +117,6 @@ class Periksa extends CI_controller
       $SQLinsert = [
         'id_antrian'      =>$this->id_antrian_urut(),
         'id_pasien'       =>$this->input->post('id_pasien'),
-        'kode_antrian'    =>$this->acak_id(4),
         'mens_terakhir'   =>$this->input->post('mens_terakhir'),
         'keluhan'         =>$this->input->post('keluhan'),
         'tgl_periksa'     =>$this->input->post('tgl_periksa'),
